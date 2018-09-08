@@ -1,0 +1,22 @@
+{
+  "name": "rap-tap-app-core",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+  },
+  "scripts": {
+    "setup": "yarn install --ignore-optional",
+    "upgrade": "yarn upgrade --latest"
+  },
+  "homepage": "https://github.com/riotz-works/rap-tap-app-core#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riotz-works/rap-tap-app-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/riotz-works/rap-tap-app-core/issues"
+  },
+  "author": "Riotz Works (https://riotz.works)",
+  "license": "MIT"
+}
