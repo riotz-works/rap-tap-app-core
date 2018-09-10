@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "serverless": "^1.30.3"
   },
   "scripts": {
     "setup": "yarn install --ignore-optional",
