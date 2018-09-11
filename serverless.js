@@ -29,6 +29,17 @@ module.exports = {
   custom: {
     webpack: { packager: 'yarn', includeModules: { forceExclude: [ 'aws-sdk' ]}},
     regions:  { dev: 'us-east-1', prd: 'us-west-2' },
-    suffixes: { dev: '-dev',      prd: '' }
+    suffixes: { dev: '-dev',      prd: '' },
+    names: {
+      'lambda-systems': '${self:service}-systems${self:custom.suffixes.${self:provider.stage}}'
+    }
+  },
+
+  functions: {
+    Systems: {
+      name: '${self:custom.names.lambda-systems}',
+      handler: 'src/aws-lambda-handler/systems.handle',
+      events: [{ http: { path: 'version', method: 'get', cors: true }}]
+    }
   }
 };
