@@ -4,11 +4,18 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "serverless": "^1.30.3"
+    "serverless": "^1.30.3",
+    "shx": "^0.3.2"
   },
   "scripts": {
+    "clean": "shx rm -rf .serverless",
     "setup": "yarn install --ignore-optional",
-    "upgrade": "yarn upgrade --latest"
+    "upgrade": "yarn upgrade --latest",
+    "build": "serverless package",
+    "deploy": "serverless deploy"
+  },
+  "engines": {
+    "node": "8.10"
   },
   "homepage": "https://github.com/riotz-works/rap-tap-app-core#readme",
   "repository": {
