@@ -20,6 +20,7 @@
     "clean": "shx rm -rf .serverless",
     "setup": "yarn install --ignore-optional",
     "upgrade": "yarn upgrade --latest",
+    "lint": "tslint -p tsconfig.json",
     "build": "serverless package",
     "deploy": "serverless deploy"
   },
