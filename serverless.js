@@ -22,7 +22,12 @@ module.exports = {
     }
   },
 
+  plugins: [
+    'serverless-webpack'
+  ],
+
   custom: {
+    webpack: { packager: 'yarn', includeModules: { forceExclude: [ 'aws-sdk' ]}},
     regions:  { dev: 'us-east-1', prd: 'us-west-2' },
     suffixes: { dev: '-dev',      prd: '' }
   }
