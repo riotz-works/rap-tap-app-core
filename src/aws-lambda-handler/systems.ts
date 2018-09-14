@@ -1,5 +1,5 @@
 import { APIGatewayEvent, APIGatewayProxyResult, Handler } from 'aws-lambda';
-import { name, version } from '../../package.json';
+import { dependencies, devDependencies, name, version } from '../../package.json';
 
 
 /**
@@ -10,12 +10,26 @@ import { name, version } from '../../package.json';
  */
 export const handle: Handler<APIGatewayEvent, APIGatewayProxyResult> = async (event: APIGatewayEvent): Promise<APIGatewayProxyResult> => {
   console.debug('Starting Lambda handler: event=%s', JSON.stringify(event));
-  return {
-    statusCode: 200,
-    headers: { 'Access-Control-Allow-Origin': '*' },
-    body: JSON.stringify({
-      name,
-      version
-    })
-  };
+  if (event.queryStringParameters && event.queryStringParameters.detail === 'true') {
+    return new Result({ name, version, dependencies, devDependencies });
+  }
+  return new Result({ name, version });
 };
+
+
+class Result implements APIGatewayProxyResult {
+
+  /** HTTP Status Code to respond. */
+  public statusCode: number = 200;
+
+  /** HTTP Headers to respond. */
+  public headers: {[ header: string ]: string } = { 'Access-Control-Allow-Origin': '*' };
+
+  /** Response body. */
+  public body: string;
+
+
+  public constructor(body: object) {
+    this.body = JSON.stringify(body);
+  }
+}
