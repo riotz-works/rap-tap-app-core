@@ -21,8 +21,8 @@
     "setup": "yarn install --ignore-optional",
     "upgrade": "yarn upgrade --latest",
     "lint": "tslint -p tsconfig.json",
-    "build": "serverless package",
-    "deploy": "serverless deploy"
+    "build": "yarn serverless package",
+    "deploy": "yarn serverless deploy"
   },
   "engines": {
     "node": "8.10"
