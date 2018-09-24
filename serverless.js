@@ -6,7 +6,6 @@
 
 const pkg = require('./package.json');
 
-
 module.exports = {
   service: pkg.name,
   provider: {
@@ -16,14 +15,25 @@ module.exports = {
     runtime: `nodejs${pkg.engines.node}`,
     memorySize: 512,
     timeout: 29,
+    logRetentionInDays: 30,
     deploymentBucket: {
       name: '${opt:bucket, "x-sls-artifacts-${self:service}-${self:provider.region}"}',
       serverSideEncryption: 'AES256'
-    }
+    },
+    iamRoleStatements: [
+      {
+        Effect: 'Allow',
+        Action: [
+          'dynamodb:*',
+        ],
+        Resource: '*',
+      },
+    ]
   },
 
   plugins: [
-    'serverless-webpack'
+    'serverless-webpack',
+    'serverless-dynamodb-ttl'
   ],
 
   custom: {
@@ -31,7 +41,17 @@ module.exports = {
     regions:  { dev: 'us-west-2', prd: 'ap-northeast-1' },
     suffixes: { dev: '-dev',      prd: '' },
     names: {
-      'lambda-systems': '${self:service}-systems${self:custom.suffixes.${self:provider.stage}}'
+      'lambda-systems': '${self:service}-systems${self:custom.suffixes.${self:provider.stage}}',
+      'lambda-rooms': '${self:service}-rooms${self:custom.suffixes.${self:provider.stage}}'
+    },
+    dynamodb: {
+      ttl: [
+        {
+          table: 'Rooms',
+          field: 'expiresAt'
+        }
+      ]
+
     }
   },
 
@@ -40,6 +60,34 @@ module.exports = {
       name: '${self:custom.names.lambda-systems}',
       handler: 'src/aws-lambda-handler/systems.handle',
       events: [{ http: { path: 'version', method: 'get', cors: true }}]
+    },
+    Rooms: {
+      name: '${self:custom.names.lambda-rooms}',
+      handler: 'src/aws-lambda-handler/actions/v1/new-room.handle',
+      events: [{ http: { path: 'rooms', method: 'post', cors: true }}],
+    }
+  },
+
+  resources: {
+    Resources: {
+      RoomsTable: {
+        Type: 'AWS::DynamoDB::Table',
+        Properties: {
+          TableName: 'Rooms',
+          AttributeDefinitions: [
+            {AttributeName: 'registeredDateYearMonth', AttributeType: 'S'},
+            {AttributeName: 'registeredDateRoomId', AttributeType: 'S'},
+          ],
+          KeySchema: [
+            {AttributeName: 'registeredDateYearMonth', KeyType: 'HASH'},
+            {AttributeName: 'registeredDateRoomId', KeyType: 'RANGE'},
+          ],
+          ProvisionedThroughput: {
+            ReadCapacityUnits: 1,
+            WriteCapacityUnits: 1
+          }
+        }
+      }
     }
   }
 };

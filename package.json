@@ -2,11 +2,20 @@
   "name": "rap-tap-app-core",
   "version": "0.0.1",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@aws/dynamodb-data-mapper": "^0.7.3",
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@types/uuid": "^3.4.4",
+    "aws-sdk": "^2.320.0",
+    "moment": "^2.22.2",
+    "serverless-dynamodb-ttl": "^0.1.1",
+    "uuid": "^3.3.2"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.11",
     "@types/node": "^10.9.4",
     "serverless": "^1.30.3",
+    "serverless-offline": "^3.25.14",
     "serverless-webpack": "^5.2.0",
     "shx": "^0.3.2",
     "ts-loader": "^5.1.0",
