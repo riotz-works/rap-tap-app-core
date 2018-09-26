@@ -1,7 +1,7 @@
 // import { table, hashKey, rangeKey, attribute } from '@aws/dynamodb-data-mapper-annotations'
 import { DynamoDbSchema, DynamoDbTable } from '@aws/dynamodb-data-mapper';
 
-export class Rapper {
+export class RapperModel {
   public nickname?: string;
 
   public peerId?: string;
@@ -13,16 +13,16 @@ export class RoomModel {
   public registeredDateRoomId?: string;
   public roomId?: string;
   public roomName?: string;
-  public rappers?: Array<Rapper>;
+  public rappers?: Array<RapperModel>;
   public expiresAt?: number;
 
 }
 
 Object.defineProperties(RoomModel.prototype, {
-  [DynamoDbTable]: {
+  [ DynamoDbTable ]: {
     value: 'Rooms'
   },
-  [DynamoDbSchema]: {
+  [ DynamoDbSchema ]: {
     value: {
       registeredDateYearMonth: {
         type: 'String',
@@ -42,11 +42,13 @@ Object.defineProperties(RoomModel.prototype, {
         type: 'Collection',
         members: {
           type: 'Document',
-          nickname: {
-            type: 'String'
-          },
-          peerId: {
-            type: 'String'
+          members: {
+            nickname: {
+              type: 'String'
+            },
+            peerId: {
+              type: 'String'
+            }
           }
         }
       },

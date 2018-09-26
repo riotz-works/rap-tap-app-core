@@ -1,6 +1,7 @@
 import { DataMapper } from '@aws/dynamodb-data-mapper';
-import { RoomModel } from '../models/room-model';
+import { RapperModel, RoomModel } from '../models/room-model';
 import * as moment from 'moment';
+import RtaError, {errorTypes} from '~/src/aws-lambda-handler/errors/RtaError';
 
 const DynamoDB = require('aws-sdk/clients/dynamodb');
 
@@ -19,9 +20,9 @@ export class RoomDao {
     });
   }
 
-  public async create(model: RoomModel): Promise<RoomModel> {
-    const created: RoomModel = await this.mapper.put(model);
-    return created;
+  public async put(model: RoomModel): Promise<RoomModel> {
+    const updated: RoomModel = await this.mapper.put(model);
+    return updated;
   }
 
   public async find(roomId: string): Promise<RoomModel> {
@@ -59,5 +60,17 @@ export class RoomDao {
     const queryResult = await docClient.query(params).promise();
 
     return queryResult.Items;
+  }
+
+  public async addRapper(roomId: string, rapper: RapperModel): Promise<RoomModel> {
+    const current = await this.find(roomId);
+    // @ts-ignore
+    if (current.rappers.length >= 2) {
+      throw new RtaError(errorTypes.ROOM_ALREADY_CLOSED);
+    }
+    const model = Object.assign(new RoomModel(), current);
+    // @ts-ignore
+    model.rappers.push(rapper);
+    return await this.put(model);
   }
 }

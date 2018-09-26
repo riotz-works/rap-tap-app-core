@@ -44,7 +44,8 @@ module.exports = {
       'lambda-systems': '${self:service}-systems${self:custom.suffixes.${self:provider.stage}}',
       'lambda-post-rooms': '${self:service}-post-rooms${self:custom.suffixes.${self:provider.stage}}',
       'lambda-get-rooms': '${self:service}-get-rooms${self:custom.suffixes.${self:provider.stage}}',
-      'lambda-rooms-roomId': '${self:service}-rooms-roomId${self:custom.suffixes.${self:provider.stage}}'
+      'lambda-get-rooms-roomId': '${self:service}-get-rooms-roomId${self:custom.suffixes.${self:provider.stage}}',
+      'lambda-post-rooms-roomId': '${self:service}-post-rooms-roomId${self:custom.suffixes.${self:provider.stage}}'
     },
     dynamodb: {
       ttl: [
@@ -63,20 +64,25 @@ module.exports = {
       handler: 'src/aws-lambda-handler/systems.handle',
       events: [{ http: { path: 'version', method: 'get', cors: true }}]
     },
-    PostRooms: {
-      name: '${self:custom.names.lambda-post-rooms}',
-      handler: 'src/aws-lambda-handler/actions/v1/new-room.handle',
-      events: [{ http: { path: 'rooms', method: 'post', cors: true }}],
-    },
     GetRooms: {
       name: '${self:custom.names.lambda-get-rooms}',
       handler: 'src/aws-lambda-handler/actions/v1/list-rooms.handle',
       events: [{ http: { path: 'rooms', method: 'get', cors: true }}],
     },
-    RoomsRoomId: {
-      name: '${self:custom.names.lambda-rooms-roomId}',
+    PostRooms: {
+      name: '${self:custom.names.lambda-post-rooms}',
+      handler: 'src/aws-lambda-handler/actions/v1/new-room.handle',
+      events: [{ http: { path: 'rooms', method: 'post', cors: true }}],
+    },
+    GetRoomsRoomId: {
+      name: '${self:custom.names.lambda-get-rooms-roomId}',
       handler: 'src/aws-lambda-handler/actions/v1/get-room.handle',
       events: [{ http: { path: 'rooms/{roomId}', method: 'get', cors: true }}],
+    },
+    PostRoomsRoomId: {
+      name: '${self:custom.names.lambda-post-rooms-roomId}',
+      handler: 'src/aws-lambda-handler/actions/v1/add-rapper.handle',
+      events: [{ http: { path: 'rooms/{roomId}', method: 'post', cors: true }}],
     }
   },
 
