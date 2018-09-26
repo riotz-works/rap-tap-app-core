@@ -42,7 +42,8 @@ module.exports = {
     suffixes: { dev: '-dev',      prd: '' },
     names: {
       'lambda-systems': '${self:service}-systems${self:custom.suffixes.${self:provider.stage}}',
-      'lambda-rooms': '${self:service}-rooms${self:custom.suffixes.${self:provider.stage}}',
+      'lambda-post-rooms': '${self:service}-post-rooms${self:custom.suffixes.${self:provider.stage}}',
+      'lambda-get-rooms': '${self:service}-get-rooms${self:custom.suffixes.${self:provider.stage}}',
       'lambda-rooms-roomId': '${self:service}-rooms-roomId${self:custom.suffixes.${self:provider.stage}}'
     },
     dynamodb: {
@@ -62,10 +63,15 @@ module.exports = {
       handler: 'src/aws-lambda-handler/systems.handle',
       events: [{ http: { path: 'version', method: 'get', cors: true }}]
     },
-    Rooms: {
-      name: '${self:custom.names.lambda-rooms}',
+    PostRooms: {
+      name: '${self:custom.names.lambda-post-rooms}',
       handler: 'src/aws-lambda-handler/actions/v1/new-room.handle',
       events: [{ http: { path: 'rooms', method: 'post', cors: true }}],
+    },
+    GetRooms: {
+      name: '${self:custom.names.lambda-get-rooms}',
+      handler: 'src/aws-lambda-handler/actions/v1/list-rooms.handle',
+      events: [{ http: { path: 'rooms', method: 'get', cors: true }}],
     },
     RoomsRoomId: {
       name: '${self:custom.names.lambda-rooms-roomId}',

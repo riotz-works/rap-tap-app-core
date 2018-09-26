@@ -10,7 +10,7 @@ export const handle: Handler<APIGatewayEvent, APIGatewayProxyResult> = async (ev
   const service: RoomService = new RoomService();
   const model: RoomModel = await service.newRoom(body.roomName);
 
-  const room: Room = new Room(model);
+  const room: Room = Room.of(model);
 
   return new Result(room);
 

@@ -5,13 +5,17 @@ export class Room {
   public roomName?: string;
   public rappers?: Rapper[]| undefined;
 
-  constructor(roomModel: RoomModel) {
-    this.roomId = roomModel.roomId;
-    this.roomName = roomModel.roomName;
-    this.rappers = roomModel.rappers ?
+  static of(roomModel: RoomModel) {
+    let room: Room = new Room();
+    room.roomId = roomModel.roomId;
+    room.roomName = roomModel.roomName;
+    room.rappers = roomModel.rappers ?
       roomModel.rappers.map(model => new Rapper(model.nickname, model.peerId))
       : []
+    return room;
+  }
 
+  constructor() {
 
   }
 

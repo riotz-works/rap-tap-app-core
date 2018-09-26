@@ -28,4 +28,8 @@ export class RoomService {
 
     return await this.dao.find(roomId)
   }
+
+  public async listRooms(): Promise<RoomModel[]> {
+    return await this.dao.list();
+  }
 }

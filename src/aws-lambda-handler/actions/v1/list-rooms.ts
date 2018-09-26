@@ -1,19 +1,18 @@
 import { APIGatewayEvent, APIGatewayProxyResult, Handler } from 'aws-lambda';
 import { RoomService } from '../../services/room-service';
 import { RoomModel } from '../../models/room-model';
-import { Room } from '../models/room';
+import { Rooms } from '~/src/aws-lambda-handler/actions/models/rooms';
 
 export const handle: Handler<APIGatewayEvent, APIGatewayProxyResult> = async (event: APIGatewayEvent): Promise<APIGatewayProxyResult> => {
   console.debug('Starting Lambda handler: event=%s', JSON.stringify(event));
   // @ts-ignore
-  const roomId: string | null = event.pathParameters.roomId;
 
   const service: RoomService = new RoomService();
-  const model: RoomModel = await service.getRoom(roomId)
+  const models: RoomModel[] = await service.listRooms()
 
-  const room: Room = Room.of(model);
+  const rooms: Rooms = new Rooms(models);
 
-  return new Result(room);
+  return new Result(rooms);
 
 }
 
