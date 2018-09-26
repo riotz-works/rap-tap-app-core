@@ -23,4 +23,9 @@ export class RoomService {
 
     return created;
   }
+
+  public async getRoom(roomId: string): Promise<RoomModel> {
+
+    return await this.dao.find(roomId)
+  }
 }

@@ -5,6 +5,7 @@
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@aws/dynamodb-expressions": "^0.7.3",
     "@types/uuid": "^3.4.4",
     "aws-sdk": "^2.320.0",
     "moment": "^2.22.2",

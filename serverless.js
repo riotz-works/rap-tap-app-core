@@ -42,7 +42,8 @@ module.exports = {
     suffixes: { dev: '-dev',      prd: '' },
     names: {
       'lambda-systems': '${self:service}-systems${self:custom.suffixes.${self:provider.stage}}',
-      'lambda-rooms': '${self:service}-rooms${self:custom.suffixes.${self:provider.stage}}'
+      'lambda-rooms': '${self:service}-rooms${self:custom.suffixes.${self:provider.stage}}',
+      'lambda-rooms-roomId': '${self:service}-rooms-roomId${self:custom.suffixes.${self:provider.stage}}'
     },
     dynamodb: {
       ttl: [
@@ -65,6 +66,11 @@ module.exports = {
       name: '${self:custom.names.lambda-rooms}',
       handler: 'src/aws-lambda-handler/actions/v1/new-room.handle',
       events: [{ http: { path: 'rooms', method: 'post', cors: true }}],
+    },
+    RoomsRoomId: {
+      name: '${self:custom.names.lambda-rooms-roomId}',
+      handler: 'src/aws-lambda-handler/actions/v1/get-room.handle',
+      events: [{ http: { path: 'rooms/{roomId}', method: 'get', cors: true }}],
     }
   },
 
@@ -77,6 +83,7 @@ module.exports = {
           AttributeDefinitions: [
             {AttributeName: 'registeredDateYearMonth', AttributeType: 'S'},
             {AttributeName: 'registeredDateRoomId', AttributeType: 'S'},
+            {AttributeName: 'roomId', AttributeType: 'S'},
           ],
           KeySchema: [
             {AttributeName: 'registeredDateYearMonth', KeyType: 'HASH'},
@@ -85,7 +92,21 @@ module.exports = {
           ProvisionedThroughput: {
             ReadCapacityUnits: 1,
             WriteCapacityUnits: 1
-          }
+          },
+          GlobalSecondaryIndexes: [{
+            IndexName: 'roomId-index',
+            KeySchema: [
+              { AttributeName: 'roomId', KeyType: 'HASH' },
+              { AttributeName: 'registeredDateRoomId', KeyType: 'RANGE' },
+            ],
+            Projection: {
+              ProjectionType: 'ALL'
+            },
+            ProvisionedThroughput: {
+              ReadCapacityUnits: 1,
+              WriteCapacityUnits: 1
+            },
+          }]
         }
       }
     }
