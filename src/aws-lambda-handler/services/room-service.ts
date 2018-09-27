@@ -33,6 +33,10 @@ export class RoomService {
     return await this.dao.list();
   }
 
+  public async listMatchedRooms(): Promise<RoomModel[]> {
+    return await this.dao.listMatched();
+  }
+
   public async addRapper(roomId: string, rapper: RapperModel) {
     return await this.dao.addRapper(roomId, rapper);
   }

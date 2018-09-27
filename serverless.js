@@ -45,7 +45,8 @@ module.exports = {
       'lambda-post-rooms': '${self:service}-post-rooms${self:custom.suffixes.${self:provider.stage}}',
       'lambda-get-rooms': '${self:service}-get-rooms${self:custom.suffixes.${self:provider.stage}}',
       'lambda-get-rooms-roomId': '${self:service}-get-rooms-roomId${self:custom.suffixes.${self:provider.stage}}',
-      'lambda-post-rooms-roomId': '${self:service}-post-rooms-roomId${self:custom.suffixes.${self:provider.stage}}'
+      'lambda-post-rooms-roomId': '${self:service}-post-rooms-roomId${self:custom.suffixes.${self:provider.stage}}',
+      'lambda-get-rooms-match': '${self:service}-get-rooms-match${self:custom.suffixes.${self:provider.stage}}',
     },
     dynamodb: {
       ttl: [
@@ -83,7 +84,12 @@ module.exports = {
       name: '${self:custom.names.lambda-post-rooms-roomId}',
       handler: 'src/aws-lambda-handler/actions/v1/add-rapper.handle',
       events: [{ http: { path: 'rooms/{roomId}', method: 'post', cors: true }}],
-    }
+    },
+    GetRoomsRoomIdMatch: {
+      name: '${self:custom.names.lambda-get-rooms-match}',
+      handler: 'src/aws-lambda-handler/actions/v1/list-match-rooms.handle',
+      events: [{ http: { path: 'rooms/match', method: 'get', cors: true }}],
+    },
   },
 
   resources: {
