@@ -1,0 +1,64 @@
+defaults: &defaults
+  working_directory: ~/workspace
+  docker:
+    - image: circleci/node:8.10
+
+
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - run:
+          name: System information
+          command: |
+            echo "Node $(node -v)"
+            echo "Yarn v$(yarn -v)"
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Setup
+          command: yarn setup
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Build
+          command: |
+            [ $CIRCLE_BRANCH = production ] && export STAGE=prd || export STAGE=dev
+            echo "Stage $STAGE"
+            yarn build --stage $STAGE
+      - persist_to_workspace:
+          root: ~/workspace
+          paths:
+            - ./*
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/workspace
+      - run:
+          name: Deploy
+          command: |
+            [ $CIRCLE_BRANCH = production ] && export STAGE=prd || export STAGE=dev
+            echo "Stage $STAGE"
+            yarn deploy --stage $STAGE
+
+
+workflows:
+  version: 2
+  build-deploy-flow:
+    jobs:
+      - build:
+          context: rap-tap-app
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+                - production
+          context: rap-tap-app
