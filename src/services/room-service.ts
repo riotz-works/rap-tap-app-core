@@ -1,5 +1,5 @@
-import { RoomDao } from '../daos/room-dao';
-import { RapperModel, RoomModel } from '../models/room-model';
+import { RoomDao } from '~/daos/room-dao';
+import { RapperModel, RoomModel } from '~/models/room-model';
 import { v4 } from 'uuid';
 import * as moment from 'moment';
 

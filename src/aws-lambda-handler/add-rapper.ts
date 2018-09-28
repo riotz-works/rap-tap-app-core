@@ -1,7 +1,7 @@
 import { APIGatewayEvent, APIGatewayProxyResult, Handler } from 'aws-lambda';
-import { RoomService } from '../../services/room-service';
-import { RapperModel } from '../../models/room-model';
-import RtaError from '../../errors/RtaError';
+import { RoomService } from '~/services/room-service';
+import { RapperModel } from '~/models/room-model';
+import RtaError from '~/errors/RtaError';
 
 export const handle: Handler<APIGatewayEvent, APIGatewayProxyResult> = async (event: APIGatewayEvent): Promise<APIGatewayProxyResult> => {
   console.debug('Starting Lambda handler: event=%s', JSON.stringify(event));
@@ -77,4 +77,3 @@ class FatalResult implements APIGatewayProxyResult {
     this.body = JSON.stringify(body);
   }
 }
-

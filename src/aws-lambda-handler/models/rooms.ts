@@ -1,5 +1,5 @@
 import { Room } from './room'
-import {RoomModel} from '../../models/room-model';
+import {RoomModel} from '~/models/room-model';
 
 export class Rooms {
   rooms: Array<Room>

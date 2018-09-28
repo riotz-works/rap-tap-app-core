@@ -1,4 +1,4 @@
-import {RoomModel} from '../../models/room-model';
+import {RoomModel} from '~/models/room-model';
 
 export class Room {
   public roomId?: string;

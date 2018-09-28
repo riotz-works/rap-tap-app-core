@@ -67,27 +67,27 @@ module.exports = {
     },
     GetRooms: {
       name: '${self:custom.names.lambda-get-rooms}',
-      handler: 'src/aws-lambda-handler/actions/v1/list-rooms.handle',
+      handler: 'src/aws-lambda-handler/list-rooms.handle',
       events: [{ http: { path: 'rooms', method: 'get', cors: true }}],
     },
     PostRooms: {
       name: '${self:custom.names.lambda-post-rooms}',
-      handler: 'src/aws-lambda-handler/actions/v1/new-room.handle',
+      handler: 'src/aws-lambda-handler/new-room.handle',
       events: [{ http: { path: 'rooms', method: 'post', cors: true }}],
     },
     GetRoomsRoomId: {
       name: '${self:custom.names.lambda-get-rooms-roomId}',
-      handler: 'src/aws-lambda-handler/actions/v1/get-room.handle',
+      handler: 'src/aws-lambda-handler/get-room.handle',
       events: [{ http: { path: 'rooms/{roomId}', method: 'get', cors: true }}],
     },
     PostRoomsRoomId: {
       name: '${self:custom.names.lambda-post-rooms-roomId}',
-      handler: 'src/aws-lambda-handler/actions/v1/add-rapper.handle',
+      handler: 'src/aws-lambda-handler/add-rapper.handle',
       events: [{ http: { path: 'rooms/{roomId}', method: 'post', cors: true }}],
     },
     GetRoomsRoomIdMatch: {
       name: '${self:custom.names.lambda-get-rooms-match}',
-      handler: 'src/aws-lambda-handler/actions/v1/list-match-rooms.handle',
+      handler: 'src/aws-lambda-handler/list-match-rooms.handle',
       events: [{ http: { path: 'rooms/match', method: 'get', cors: true }}],
     },
   },

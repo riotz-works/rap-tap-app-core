@@ -1,7 +1,7 @@
 import { DataMapper } from '@aws/dynamodb-data-mapper';
-import { RapperModel, RoomModel } from '../models/room-model';
+import { RapperModel, RoomModel } from '~/models/room-model';
 import * as moment from 'moment';
-import RtaError, {errorTypes} from '~/src/aws-lambda-handler/errors/RtaError';
+import RtaError, {errorTypes} from '~/errors/RtaError';
 
 const DynamoDB = require('aws-sdk/clients/dynamodb');
 
