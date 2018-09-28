@@ -1,12 +1,13 @@
-import { Room } from './room'
-import {RoomModel} from '~/models/room-model';
+/* tslint:disable:completed-docs */  // For value objects of model class
+import { RoomModel } from '~/models/room-model';
+import { Room } from './room';
+
 
 export class Rooms {
-  rooms: Array<Room>
 
-  constructor(roomModels: RoomModel[]) {
-    this.rooms = roomModels ? roomModels.map(model => Room.of(model))
-    : [];
+  public rooms: Room[];
+
+  public constructor(rooms: RoomModel[]) {
+    this.rooms = rooms ? rooms.map((model: RoomModel) => Room.of(model)) : [];
   }
-
 }

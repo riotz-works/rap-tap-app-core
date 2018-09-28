@@ -1,33 +1,26 @@
 import { DataMapper } from '@aws/dynamodb-data-mapper';
-import { RapperModel, RoomModel } from '~/models/room-model';
 import * as moment from 'moment';
-import RtaError, {errorTypes} from '~/errors/RtaError';
+import RtaError, { errorTypes } from '~/errors/rta-error';
+import { RapperModel, RoomModel } from '~/models/room-model';
 
 const DynamoDB = require('aws-sdk/clients/dynamodb');
+(Symbol as any).asyncIterator = Symbol.asyncIterator || Symbol('Symbol.asyncIterator');
 
-
-(Symbol as any).asyncIterator = Symbol.asyncIterator || Symbol("Symbol.asyncIterator");
-
-
-const client = new DynamoDB();
 
 export class RoomDao {
-  private mapper: DataMapper;
 
-  public constructor() {
-    this.mapper = new DataMapper({
-      client: client
-    });
-  }
+  private mapper: DataMapper = new DataMapper({ client: new DynamoDB() });
+  private client = new DynamoDB.DocumentClient();
+
 
   public async put(model: RoomModel): Promise<RoomModel> {
     const updated: RoomModel = await this.mapper.put(model);
     return updated;
   }
 
-  public async find(roomId: string): Promise<RoomModel> {
-    const now = moment.utc();
-    const start = moment.utc().subtract(1, 'hours');
+  public async find(roomId?: string): Promise<RoomModel> {
+    const now: moment.Moment = moment.utc();
+    const start: moment.Moment = moment.utc().subtract(1, 'hours');
     const params = {
       TableName: 'Rooms',
       IndexName: 'roomId-index',
@@ -38,15 +31,14 @@ export class RoomDao {
         ':end': now.toISOString()
       }
     };
-    const docClient = new DynamoDB.DocumentClient();
-    const queryResult = await docClient.query(params).promise();
 
-    return queryResult.Items.pop();
+    const result = await this.client.query(params).promise();
+    return result.Items.pop();
   }
 
   public async list(): Promise<RoomModel[]> {
-    const now = moment.utc();
-    const start = moment.utc().subtract(1, 'hours');
+    const now: moment.Moment = moment.utc();
+    const start: moment.Moment = moment.utc().subtract(1, 'hours');
     const params = {
       TableName: 'Rooms',
       KeyConditionExpression: 'registeredDateYearMonth = :registeredDateYearMonth and registeredDateRoomId BETWEEN :start AND :end',
@@ -56,15 +48,14 @@ export class RoomDao {
         ':end': now.toISOString()
       }
     };
-    const docClient = new DynamoDB.DocumentClient();
-    const queryResult = await docClient.query(params).promise();
 
-    return queryResult.Items;
+    const result = await this.client.query(params).promise();
+    return result.Items;
   }
 
   public async listMatched(): Promise<RoomModel[]> {
-    const now = moment.utc();
-    const start = moment.utc().subtract(1, 'hours');
+    const now: moment.Moment = moment.utc();
+    const start: moment.Moment = moment.utc().subtract(1, 'hours');
     const params = {
       TableName: 'Rooms',
       KeyConditionExpression: 'registeredDateYearMonth = :registeredDateYearMonth and registeredDateRoomId BETWEEN :start AND :end',
@@ -74,22 +65,21 @@ export class RoomDao {
         ':end': now.toISOString()
       }
     };
-    const docClient = new DynamoDB.DocumentClient();
-    const queryResult = await docClient.query(params).promise();
 
-    //@ts-ignore
-    return queryResult.Items.filter((item: RoomModel) => item.rappers.length === 2);
+    const result = await this.client.query(params).promise();
+    return result.Items.filter((item: RoomModel) => item.rappers && item.rappers.length === 2);
   }
 
-  public async addRapper(roomId: string, rapper: RapperModel): Promise<RoomModel> {
-    const current = await this.find(roomId);
-    // @ts-ignore
-    if (current.rappers.length >= 2) {
+  public async addRapper(roomId?: string, rapper?: RapperModel): Promise<RoomModel> {
+    const current: RoomModel = await this.find(roomId);
+    if (current.rappers && 2 <= current.rappers.length) {
       throw new RtaError(errorTypes.ROOM_ALREADY_CLOSED);
     }
-    const model = Object.assign(new RoomModel(), current);
-    // @ts-ignore
-    model.rappers.push(rapper);
-    return await this.put(model);
+
+    const model: RoomModel = Object.assign(new RoomModel(), current);
+    if (rapper) {
+      model.rappers.push(rapper);
+    }
+    return this.put(model);
   }
 }

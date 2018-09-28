@@ -1,30 +1,29 @@
-import {RoomModel} from '~/models/room-model';
+/* tslint:disable:completed-docs */  // For value objects of model class
+import { RapperModel, RoomModel } from '~/models/room-model';
+
 
 export class Room {
+
   public roomId?: string;
   public roomName?: string;
-  public rappers?: Rapper[]| undefined;
+  public rappers?: Rapper[];
 
-  static of(roomModel: RoomModel) {
-    let room: Room = new Room();
-    room.roomId = roomModel.roomId;
-    room.roomName = roomModel.roomName;
-    room.rappers = roomModel.rappers ?
-      roomModel.rappers.map(model => new Rapper(model.nickname, model.peerId))
-      : []
+  public static of(model: RoomModel): Room {
+    const room: Room = new Room();
+    room.roomId = model.roomId;
+    room.roomName = model.roomName;
+    room.rappers = model.rappers ? model.rappers.map((rapper: RapperModel) => new Rapper(rapper.nickname, rapper.peerId)) : [];
     return room;
   }
-
-  constructor() {
-
-  }
-
 }
 
-class Rapper {
-  public nickname : string | undefined;
-  public peerId : string | undefined;
-  constructor(nickName: string | undefined, peerId: string | undefined) {
+
+export class Rapper {
+
+  public nickname?: string;
+  public peerId?: string;
+
+  public constructor(nickName?: string, peerId?: string) {
     this.nickname = nickName;
     this.peerId = peerId;
   }
