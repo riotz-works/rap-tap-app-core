@@ -7,17 +7,28 @@ const DynamoDB = require('aws-sdk/clients/dynamodb');
 (Symbol as any).asyncIterator = Symbol.asyncIterator || Symbol('Symbol.asyncIterator');
 
 
+/**
+ * DAO handling RoomModel.
+ */
 export class RoomDao {
 
-  private mapper: DataMapper = new DataMapper({ client: new DynamoDB() });
-  private client = new DynamoDB.DocumentClient();
+  private readonly mapper: DataMapper = new DataMapper({ client: new DynamoDB() });
+  private readonly client = new DynamoDB.DocumentClient();
 
 
+  /**
+   * Register a new record in the database, or overwrite it if exists.
+   * @param model RoomModel to register.
+   */
   public async put(model: RoomModel): Promise<RoomModel> {
     const updated: RoomModel = await this.mapper.put(model);
     return updated;
   }
 
+  /**
+   * Search by Room ID.
+   * @param roomId Room ID.
+   */
   public async find(roomId?: string): Promise<RoomModel> {
     const now: moment.Moment = moment.utc();
     const start: moment.Moment = moment.utc().subtract(1, 'hours');
@@ -36,6 +47,9 @@ export class RoomDao {
     return result.Items.pop();
   }
 
+  /**
+   * List registered rooms.
+   */
   public async list(): Promise<RoomModel[]> {
     const now: moment.Moment = moment.utc();
     const start: moment.Moment = moment.utc().subtract(1, 'hours');
@@ -53,6 +67,9 @@ export class RoomDao {
     return result.Items;
   }
 
+  /**
+   * List matched rooms.
+   */
   public async listMatched(): Promise<RoomModel[]> {
     const now: moment.Moment = moment.utc();
     const start: moment.Moment = moment.utc().subtract(1, 'hours');
@@ -70,6 +87,11 @@ export class RoomDao {
     return result.Items.filter((item: RoomModel) => item.rappers && item.rappers.length === 2);
   }
 
+  /**
+   * Add a Rapper to Room.
+   * @param roomId Room ID.
+   * @param rapper Rapper to add.
+   */
   public async addRapper(roomId?: string, rapper?: RapperModel): Promise<RoomModel> {
     const current: RoomModel = await this.find(roomId);
     if (current.rappers && 2 <= current.rappers.length) {

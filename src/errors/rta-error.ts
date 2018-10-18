@@ -1,4 +1,11 @@
+/**
+ * Application Error.
+ */
 export default class RtaError extends Error {
+
+  /**
+   * Error type.
+   */
   public errorType: {
     type: string;
     message: string;
@@ -10,6 +17,9 @@ export default class RtaError extends Error {
   }
 }
 
+/**
+ * Constants representing error type.
+ */
 export const errorTypes: { [key: string]: { type: string; message: string }} = {
   ROOM_ALREADY_CLOSED: {
     type: 'RoomAlreadyClosed',
