@@ -15,6 +15,7 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.13",
     "@types/node": "^10.12.0",
+    "all-contributors-cli": "^5.4.1",
     "serverless": "^1.32.0",
     "serverless-offline": "^3.27.0",
     "serverless-webpack": "^5.2.0",
@@ -32,7 +33,9 @@
     "upgrade": "yarn upgrade --latest",
     "lint": "tslint -p tsconfig.json",
     "build": "yarn serverless package",
-    "deploy": "yarn serverless deploy"
+    "deploy": "yarn serverless deploy",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "engines": {
     "node": "8.10"
