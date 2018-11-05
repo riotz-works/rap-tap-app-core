@@ -13,7 +13,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.13",
+    "@types/aws-lambda": "^8.10.15",
     "@types/node": "^10.12.2",
     "all-contributors-cli": "^5.4.1",
     "serverless": "^1.32.0",
