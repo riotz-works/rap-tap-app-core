@@ -4524,10 +4524,10 @@ serverless-dynamodb-ttl@^0.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
-serverless-offline@^3.31.0:
-  version "3.31.0"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-3.31.0.tgz#0ee5885df968c4be415cf10d229370fd6cd5c908"
-  integrity sha512-uGur1/LeQ8LkOl1U6RFDlfTUXAl08GeYRqqX1mjFjQQxh7Lol0JORyFQP3xfIWszCWjkdTPw79R4TPqVncMHtA==
+serverless-offline@^3.31.2:
+  version "3.31.2"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-3.31.2.tgz#ce58a5c1638716242ed3da8d5658237189db115f"
+  integrity sha512-TN1pLjTWakK0rlLqYY7ZQ1HcRXSDmehouYXWSX7YqGX6RYSqr91X5GsMcLgJVaxhrRCFH2aZFfszw2kMN8MPKg==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/register" "^7.0.0"
