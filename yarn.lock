@@ -4598,10 +4598,10 @@ serverless-dynamodb-ttl@^0.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
-serverless-offline@^3.32.1:
-  version "3.32.1"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-3.32.1.tgz#a3b9b7c405e7c63eed164621cfcd9ab0933ce168"
-  integrity sha512-Bq/OylPQFtr5ZgJ1eTKuYqTEVXJzvThjTbAHAL3LG2Dsiowz125EmzWdOrzW9cUEpSKvIq038YeiBoNCaberEQ==
+serverless-offline@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.0.0.tgz#3ba9fe467ed6b7a0e4661160b2d7929bd5ca03df"
+  integrity sha512-KG8wzrMZyOdI3MtDRahZq0u1O+MCHTRQVugitTo5wfLJKCqWSdtSXy6lW18NLMHoPYfCf+5hdB3vT/nCK6zqug==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/register" "^7.0.0"
@@ -4613,7 +4613,6 @@ serverless-offline@^3.32.1:
     js-string-escape "^1.0.1"
     jsonpath-plus "^0.16.0"
     jsonwebtoken "^8.3.0"
-    lodash "^4.17.10"
     uuid "^3.3.2"
     velocityjs "^1.1.2"
 
