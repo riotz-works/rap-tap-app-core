@@ -2770,6 +2770,11 @@ jsonpath-plus@^0.16.0:
   resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-0.16.0.tgz#fe441b23f03ec6979a5603513988cd3edb7db5dc"
   integrity sha1-/kQbI/A+xpeaVgNROYjNPtt9tdw=
 
+jsonschema@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/jsonschema/-/jsonschema-1.2.4.tgz#a46bac5d3506a254465bc548876e267c6d0d6464"
+  integrity sha512-lz1nOH69GbsVHeVgEdvyavc/33oymY1AZwtePMiMj4HZPMbP5OIKK3zT9INMWjwua/V4Z4yq7wSlBbSG+g4AEw==
+
 jsonwebtoken@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-8.3.0.tgz#056c90eee9a65ed6e6c72ddb0a1d325109aaf643"
@@ -4123,10 +4128,10 @@ serverless-dynamodb-ttl@^0.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
-serverless-offline@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.2.0.tgz#79e6adfd935812b2ef27ffc3ffd967400d83cf3c"
-  integrity sha512-pAErotlNGFPqWuPUKD2gYC3KmqElM7aCkv4nkGewX7AamLH49feRGJLiZQH79+Rj5ysk/sQCFk/K9vhew5dDIw==
+serverless-offline@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.3.0.tgz#593c7d245df7135e1a81f1072f91628d10e57a31"
+  integrity sha512-CQBno41v4elXA5+VTVD09mmMIo9zxks8Wr23gKV7IgwAkX9TYmGJrd13lZgTPvbhB4jC4kLuZuAongwu+Bne7Q==
   dependencies:
     boom "^7.3.0"
     cryptiles "^4.1.2"
@@ -4135,6 +4140,7 @@ serverless-offline@^4.2.0:
     hapi-cors-headers "^1.0.3"
     js-string-escape "^1.0.1"
     jsonpath-plus "^0.16.0"
+    jsonschema "^1.2.4"
     jsonwebtoken "^8.3.0"
     trim-newlines "^2.0.0"
     velocityjs "^1.1.2"
