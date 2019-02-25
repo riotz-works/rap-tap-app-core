@@ -4120,10 +4120,10 @@ serverless-dynamodb-ttl@^0.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
-serverless-offline@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.4.2.tgz#3dd4baf76826ed3dfe60b8a0393b57cfeb201440"
-  integrity sha512-lDRETGRmwbmNMH1+MYnP+NIsVUFKjE1gov1q5m+csPsxeYg0DvCJrjemvMSfNDJTowodFIHU8ODMaWIhxHu0yQ==
+serverless-offline@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.6.0.tgz#b0315897888ba6b9c728202b06f1bfcba45213b2"
+  integrity sha512-mQcsXB9UHVfXxI1ejrrZkaAos3XodthH/WemYqBcgHv8pGlsMG5XVv2CNNE7jFuw0i08aeK+r8KCYbdkwDC6bg==
   dependencies:
     boom "^7.3.0"
     cryptiles "^4.1.2"
