@@ -24,7 +24,7 @@
     "tslint": "^5.13.0",
     "tslint-loader": "^3.5.4",
     "typescript": "^3.3.3",
-    "webpack": "^4.29.4",
+    "webpack": "^4.29.5",
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
