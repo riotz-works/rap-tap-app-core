@@ -73,10 +73,10 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@types/aws-lambda@^8.10.21":
-  version "8.10.21"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.21.tgz#8dce0945a722aa8dcdee35d2472a1e5c322c8f90"
-  integrity sha512-HaYGrmMYxOfjqSyOZywYlPMwf0V8AwhM8CXLfPiqnurGHrJL//0p50gq+C5+LHW5aD6W4Brt739w+Y/KWsQamw==
+"@types/aws-lambda@^8.10.22":
+  version "8.10.22"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.22.tgz#5feecbee29436606edf771a9ee330871b224091c"
+  integrity sha512-FzGmRH253fQDxH0YRfDDwQqKF3IBAiBEVT2cvJR0pI3O+W4L0PktZOxpp5MMNHp1rlHWmHb7VN9X0NAX8IgDKA==
 
 "@types/node@*", "@types/node@^11.11.0":
   version "11.11.0"
