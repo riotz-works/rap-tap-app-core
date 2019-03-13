@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.21",
-    "@types/node": "^11.11.0",
+    "@types/node": "^11.11.3",
     "all-contributors-cli": "^6.1.2",
     "serverless": "^1.38.0",
     "serverless-offline": "^4.8.1",
