@@ -1,29 +1,44 @@
-defaults: &defaults
-  working_directory: ~/workspace
-  docker:
-    - image: circleci/node:8.10
+version: 2.1
 
+executors:
+  default:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/node:10
+    environment:
+      TZ: /usr/share/zoneinfo/Asia/Tokyo
 
-version: 2
-jobs:
-  build:
-    <<: *defaults
+commands:
+  system_info:
     steps:
       - run:
           name: System information
           command: |
             echo "Node $(node -v)"
             echo "Yarn v$(yarn -v)"
-      - checkout
+  setup:
+    steps:
       - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          name: Restore Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Setup
           command: yarn setup
       - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+
+
+jobs:
+  build:
+    executor:
+      name: default
+    steps:
+      - system_info
+      - checkout
+      - setup
       - run:
           name: Build
           command: |
@@ -35,7 +50,8 @@ jobs:
           paths:
             - ./*
   deploy:
-    <<: *defaults
+    executor:
+      name: default
     steps:
       - attach_workspace:
           at: ~/workspace
@@ -48,12 +64,12 @@ jobs:
 
 
 workflows:
-  version: 2
   build-deploy-flow:
     jobs:
       - build:
           context: rap-tap-app
       - deploy:
+          context: rap-tap-app
           requires:
             - build
           filters:
@@ -61,4 +77,3 @@ workflows:
               only:
                 - master
                 - production
-          context: rap-tap-app
