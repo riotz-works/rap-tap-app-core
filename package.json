@@ -38,7 +38,7 @@
     "contributors:generate": "all-contributors generate"
   },
   "engines": {
-    "node": "8.10"
+    "node": "10"
   },
   "homepage": "https://github.com/riotz-works/rap-tap-app-core#readme",
   "repository": {

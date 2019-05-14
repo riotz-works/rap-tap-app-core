@@ -12,7 +12,7 @@ module.exports = {
     name: 'aws',
     stage: '${opt:stage, "dev"}',
     region: '${opt:region, self:custom.regions.${self:provider.stage}}',
-    runtime: `nodejs${pkg.engines.node}`,
+    runtime: `nodejs${pkg.engines.node}.x`,
     memorySize: 512,
     timeout: 29,
     logRetentionInDays: 30,
