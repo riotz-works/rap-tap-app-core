@@ -4,7 +4,6 @@ import RtaError, { errorTypes } from '~/errors/rta-error';
 import { RapperModel, RoomModel } from '~/models/room-model';
 
 const DynamoDB = require('aws-sdk/clients/dynamodb');
-(Symbol as any).asyncIterator = Symbol.asyncIterator || Symbol('Symbol.asyncIterator');
 
 
 /**
