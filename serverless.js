@@ -38,8 +38,8 @@ module.exports = {
 
   custom: {
     webpack: { packager: 'yarn', includeModules: { forceExclude: [ 'aws-sdk' ]}},
-    regions:  { dev: 'us-west-2', prd: 'ap-northeast-1' },
-    suffixes: { dev: '-dev',      prd: '' },
+    regions:  { dev: 'ap-northeast-1', prd: '' },
+    suffixes: { dev: '',               prd: '' },
     names: {
       'lambda-systems': '${self:service}-systems${self:custom.suffixes.${self:provider.stage}}',
       'lambda-post-rooms': '${self:service}-post-rooms${self:custom.suffixes.${self:provider.stage}}',
