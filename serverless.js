@@ -17,7 +17,7 @@ module.exports = {
     timeout: 29,
     logRetentionInDays: 30,
     deploymentBucket: {
-      name: '${opt:bucket, "x-sls-artifacts-${self:service}-${self:provider.region}"}',
+      name: '${opt:bucket, "x-sls-artifacts-riotz-${self:provider.region}"}',
       serverSideEncryption: 'AES256'
     },
     iamRoleStatements: [
