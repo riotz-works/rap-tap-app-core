@@ -5186,10 +5186,10 @@ serverless-dynamodb-ttl@^0.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
-serverless-offline@^5.5.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-5.5.0.tgz#9eaea44af49313405fffa8702ddf80d8b92a2427"
-  integrity sha512-94lJmkW7AA5rcPCQtgNUISESzyoPwZZI3kmKZj2/WuFmMRyWvaklgqjDtiqr8M4SNAce4DusB6wombKuE/mBhw==
+serverless-offline@^5.5.1:
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-5.5.1.tgz#496e06d3af0dadebe27154c933ce1530b3e90660"
+  integrity sha512-3C/72+8I5JGfzWOPvA8p/0En063sYQSEhxeucME/CUBOHgmBuMa0AG8rBQT5jhcNKsK0ggMfBme6i796MYknWA==
   dependencies:
     "@hapi/boom" "^7.4.2"
     "@hapi/cryptiles" "^4.2.0"
