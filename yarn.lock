@@ -5238,10 +5238,10 @@ semver-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.0.tgz#790a7cf6fea5459bac96110b29b60412dc8ff96b"
   integrity sha512-Ya52jSX2u7QKghxeoFGpLwCtGlt7j0oY9DYb5apt9nPlJ42ID+ulTXESnt/qAQcoSERyZ5sl3LDIOw0nAn/5DA==
 
-semver@^6.0.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-6.1.0.tgz#e95dc415d45ecf03f2f9f83b264a6b11f49c0cca"
-  integrity sha512-kCqEOOHoBcFs/2Ccuk4Xarm/KiWRSLEX9CAZF8xkJ6ZPlIoTZ8V5f7J16vYLJqDbR7KrxTJpR2lqjIEm2Qx9cQ==
+semver@^6.0.0, semver@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.2.0.tgz#4d813d9590aaf8a9192693d6c85b9344de5901db"
+  integrity sha512-jdFC1VdUGT/2Scgbimf7FSx9iJLXoqfglSF+gJeuNWVpiE37OIbc1jywR/GJyFdz3mnkz2/id0L0J/cr0izR5A==
 
 send@0.17.1:
   version "0.17.1"
@@ -5284,10 +5284,10 @@ serverless-dynamodb-ttl@^0.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
-serverless-offline@^5.7.1:
-  version "5.7.1"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-5.7.1.tgz#21a790dcfc13e449480e6aa339ce868fd6e02534"
-  integrity sha512-MWWu15bDzyUbaVX99e6DWZphdldjBcKCx4jDgQt3zs08iTa9BXH/5Y+mxnoTrtOlHFOL7okhJ/OhrwFYjufPmQ==
+serverless-offline@^5.7.2:
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-5.7.2.tgz#aa8a688f67fd449d7e8e63c6276a1f6d0d09ecc3"
+  integrity sha512-nXgrTbw/1Bi6thcnAlDknkfQF0tRn63KEMQMrGbXqxoU+FerOyN4Bf8aOtT83NibjR4LELqmkfGXTclfP/MjWw==
   dependencies:
     "@hapi/boom" "^7.4.2"
     "@hapi/h2o2" "^8.3.0"
@@ -5299,6 +5299,7 @@ serverless-offline@^5.7.1:
     jsonwebtoken "^8.5.1"
     luxon "^1.16.1"
     object.fromentries "^2.0.0"
+    semver "^6.2.0"
     trim-newlines "^3.0.0"
     velocityjs "^1.1.3"
 
