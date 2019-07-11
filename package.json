@@ -17,7 +17,7 @@
     "@types/node": "^12.6.1",
     "all-contributors-cli": "^6.7.0",
     "serverless": "^1.46.1",
-    "serverless-offline": "^5.7.2",
+    "serverless-offline": "^5.7.3",
     "serverless-webpack": "^5.3.1",
     "ts-loader": "^6.0.4",
     "tslint": "^5.18.0",
