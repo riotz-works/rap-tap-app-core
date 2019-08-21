@@ -20,7 +20,7 @@
     "serverless-offline": "^5.10.1",
     "serverless-webpack": "^5.3.1",
     "ts-loader": "^6.0.4",
-    "tslint": "^5.18.0",
+    "tslint": "^5.19.0",
     "tslint-loader": "^3.5.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
