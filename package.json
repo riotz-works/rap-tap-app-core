@@ -16,7 +16,7 @@
     "@types/aws-lambda": "^8.10.33",
     "@types/node": "^12.7.8",
     "all-contributors-cli": "^6.9.1",
-    "serverless": "^1.52.2",
+    "serverless": "^1.53.0",
     "serverless-offline": "^5.11.0",
     "serverless-webpack": "^5.3.1",
     "ts-loader": "^6.1.2",
