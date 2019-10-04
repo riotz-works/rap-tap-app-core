@@ -174,6 +174,11 @@
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.0.0.tgz#9f05469c88cb2fd3dcd624776b54ee95c312126a"
   integrity sha512-mV6T0IYqb0xL1UALPFplXYQmR0twnXG0M6jUswpquqT2sD12BOiCiLy3EvMp/Fy7s3DZElC4/aPjEjo2jeZpvw==
 
+"@hapi/address@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.2.tgz#1c794cd6dbf2354d1eb1ef10e0303f573e1c7222"
+  integrity sha512-O4QDrx+JoGKZc6aN64L04vqa7e41tIiLU+OvKdcYaEMP97UttL0f9GIi9/0A4WAMx0uBd6SidDIhktZhgOcN8Q==
+
 "@hapi/ammo@3.x.x":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@hapi/ammo/-/ammo-3.1.0.tgz#a3281ecb68bf7af2ffa6d0f7656536a7d23700ed"
@@ -195,10 +200,10 @@
   dependencies:
     "@hapi/hoek" "6.x.x"
 
-"@hapi/boom@7.x.x", "@hapi/boom@^7.4.3":
-  version "7.4.3"
-  resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-7.4.3.tgz#79ffed6ef8c625046a3bd069abed5a9d35fc50c1"
-  integrity sha512-3di+R+BcGS7HKy67Zi6mIga8orf67GdR0ubDEVBG1oqz3y9B70LewsuCMCSvWWLKlI6V1+266zqhYzjMrPGvZw==
+"@hapi/boom@7.x.x", "@hapi/boom@^7.4.11":
+  version "7.4.11"
+  resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-7.4.11.tgz#37af8417eb9416aef3367aa60fa04a1a9f1fc262"
+  integrity sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==
   dependencies:
     "@hapi/hoek" "8.x.x"
 
@@ -255,20 +260,25 @@
   dependencies:
     "@hapi/boom" "7.x.x"
 
-"@hapi/h2o2@^8.3.1":
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/@hapi/h2o2/-/h2o2-8.3.1.tgz#0f2be041e0e7fcce4fde674b3a8b2dfc0cc16d5c"
-  integrity sha512-BH/N3A/lNq3m61fHtcV1Jjcv0SU2zRz35JQOaD1oWh4ei+RAj3+K5LpygG0JJHiDv4QVgJd0g5UPHG32AdSBkQ==
+"@hapi/formula@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@hapi/formula/-/formula-1.2.0.tgz#994649c7fea1a90b91a0a1e6d983523f680e10cd"
+  integrity sha512-UFbtbGPjstz0eWHb+ga/GM3Z9EzqKXFWIbSOFURU0A/Gku0Bky4bCk9/h//K2Xr3IrCfjFNhMm4jyZ5dbCewGA==
+
+"@hapi/h2o2@^8.3.2":
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/@hapi/h2o2/-/h2o2-8.3.2.tgz#008a8f9ec3d9bba29077691aa9ec0ace93d4de80"
+  integrity sha512-2WkZq+QAkvYHWGqnUuG0stcVeGyv9T7bopBYnCJSUEuvBZlUf2BTX2JCVSKxsnTLOxCYwoC/aI4Rr0ZSRd2oVg==
   dependencies:
     "@hapi/boom" "7.x.x"
     "@hapi/hoek" "8.x.x"
-    "@hapi/joi" "15.x.x"
+    "@hapi/joi" "16.x.x"
     "@hapi/wreck" "15.x.x"
 
-"@hapi/hapi@^18.3.2":
-  version "18.3.2"
-  resolved "https://registry.yarnpkg.com/@hapi/hapi/-/hapi-18.3.2.tgz#c625cf6473e51cea54cd50163112c4aaa547169b"
-  integrity sha512-UJogSyMPe4VFfzjQW5v2ixLvTLZLSfPs1XV/DRnAl2znzsGCaNJI+tgNxjM9lszOjEEkMfxLgoXZadk9exnIxw==
+"@hapi/hapi@^18.4.0":
+  version "18.4.0"
+  resolved "https://registry.yarnpkg.com/@hapi/hapi/-/hapi-18.4.0.tgz#607c33e31741bacba107011e2e24eaf431d8cc7a"
+  integrity sha512-uk9zqknRLcNVQKgrPURm85DqkdroWP8eDRekh/IPoKvC4VjdZSn6EH2eUriOwyud/CldeBS3HDIJ/PtRj3VxDQ==
   dependencies:
     "@hapi/accept" "3.x.x"
     "@hapi/ammo" "3.x.x"
@@ -313,6 +323,11 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-8.2.4.tgz#684a14f4ca35d46f44abc87dfc696e5e4fe8a020"
   integrity sha512-Ze5SDNt325yZvNO7s5C4fXDscjJ6dcqLFXJQ/M7dZRQCewuDj2iDUuBi6jLQt+APbW9RjjVEvLr35FXuOEqjow==
 
+"@hapi/hoek@^8.2.4":
+  version "8.2.5"
+  resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-8.2.5.tgz#b307d3f1aced22e05bd6a2403c302eaebb577da3"
+  integrity sha512-rmGFzok1zR3xZKd5m3ihWdqafXFxvPHoQ/78+AG5URKbEbJiwBBfRgzbu+07W5f3+07JRshw6QqGbVmCp8ntig==
+
 "@hapi/iron@5.x.x":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@hapi/iron/-/iron-5.1.0.tgz#c3b34783cd19b7b8aabe11b72b0ce3781fcee08d"
@@ -331,6 +346,17 @@
     "@hapi/address" "2.x.x"
     "@hapi/hoek" "6.x.x"
     "@hapi/topo" "3.x.x"
+
+"@hapi/joi@16.x.x":
+  version "16.1.5"
+  resolved "https://registry.yarnpkg.com/@hapi/joi/-/joi-16.1.5.tgz#06bdfec1084f46bff6be8f6b4076d8314c81cea2"
+  integrity sha512-FnVe0t1YQbF0H4fhFM6qBL7lIP4wdVHdFFBkloxgCkpKKdaCB6Z2UaNI0UalaDRHbRM9BvfTfyUKJg7tGtBSXg==
+  dependencies:
+    "@hapi/address" "^2.1.2"
+    "@hapi/formula" "^1.2.0"
+    "@hapi/hoek" "^8.2.4"
+    "@hapi/pinpoint" "^1.0.2"
+    "@hapi/topo" "^3.1.3"
 
 "@hapi/mimos@4.x.x":
   version "4.1.0"
@@ -358,6 +384,11 @@
     "@hapi/content" "4.x.x"
     "@hapi/hoek" "6.x.x"
     "@hapi/nigel" "3.x.x"
+
+"@hapi/pinpoint@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@hapi/pinpoint/-/pinpoint-1.0.2.tgz#025b7a36dbbf4d35bf1acd071c26b20ef41e0d13"
+  integrity sha512-dtXC/WkZBfC5vxscazuiJ6iq4j9oNx1SHknmIr8hofarpKUZKmlUVYVIhNVzIEgK5Wrc4GMHL5lZtt1uS2flmQ==
 
 "@hapi/podium@3.x.x":
   version "3.4.0"
@@ -419,6 +450,13 @@
   integrity sha512-gZDI/eXOIk8kP2PkUKjWu9RW8GGVd2Hkgjxyr/S7Z+JF+0mr7bAlbw+DkTRxnD580o8Kqxlnba9wvqp5aOHBww==
   dependencies:
     "@hapi/hoek" "6.x.x"
+
+"@hapi/topo@^3.1.3":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@hapi/topo/-/topo-3.1.4.tgz#42e2fe36f593d90ad258a08b582be128c141c45d"
+  integrity sha512-aVWQTOI9wBD6zawmOr6f+tdEIxQC8JXfQVLTjgGe8YEStAWGn/GNNVTobKJhbWKveQj2RyYF3oYbO9SC8/eOCA==
+  dependencies:
+    "@hapi/hoek" "8.x.x"
 
 "@hapi/vise@3.x.x":
   version "3.1.0"
@@ -3992,10 +4030,10 @@ jsonfile@^4.0.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-jsonpath-plus@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-1.0.0.tgz#78fa5c4ae62968476268d505d9f78c65469d0e7c"
-  integrity sha512-CXQJ/tsgFogKYBuCRmnlChIw66JBXp8kAkT+R4mSB2cuzCSBi88lx2A+vHvo27RY4Wtj5xVVGu2/2O7NwZ79mg==
+jsonpath-plus@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-1.1.0.tgz#7caaea4db88b761a0a3b55d715cb01eaa469dfa5"
+  integrity sha512-ydqTBOuLcFCUr9e7AxJlKCFgxzEQ03HjnIim0hJSdk2NxD8MOsaMOrRgP6XWEm5q3VuDY5+cRT1DM9vLlGo/qA==
 
 jsonwebtoken@^8.5.1:
   version "8.5.1"
@@ -4287,10 +4325,10 @@ lsmod@1.0.0:
   resolved "https://registry.yarnpkg.com/lsmod/-/lsmod-1.0.0.tgz#9a00f76dca36eb23fa05350afe1b585d4299e64b"
   integrity sha1-mgD3bco26yP6BTUK/htYXUKZ5ks=
 
-luxon@^1.17.1:
-  version "1.17.2"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.17.2.tgz#95189c450341cfddf5f826ef8c32b5b022943fd5"
-  integrity sha512-qELKtIj3HD41N+MvgoxArk8DZGUb4Gpiijs91oi+ZmKJzRlxY6CoyTwNoUwnogCVs4p8HuxVJDik9JbnYgrCng==
+luxon@^1.19.3:
+  version "1.19.3"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.19.3.tgz#86c04a1395529b4386ae235a8fe16d0a82a0695b"
+  integrity sha512-YwTDjGRQC0QC9Iya2g2eKZfgEFqRId4ZoLHORQcfTMB/5xrTx427V7ZPjQJ1vzvhA2vJfG2bh1Kv8V8IFMWCUA==
 
 make-dir@^1.0.0:
   version "1.3.0"
@@ -5745,25 +5783,25 @@ serverless-dynamodb-ttl@^0.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
-serverless-offline@^5.11.0:
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-5.11.0.tgz#505c74ac4d31ca3af210e6149886e394513c1b33"
-  integrity sha512-l68JTxc6wk6AlSwFIuKhvdYM7jopixhhjwj9jdCCNkaMIsISLlCCnIP9NQaLueKUrHBCP33rSJ7O5hO7HAIasw==
+serverless-offline@^5.12.0:
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-5.12.0.tgz#06fe48d0826c8b6930b9a47789712d6c6b350139"
+  integrity sha512-iYnToFs/PWQe1V68ChueD6+pzMlla8hJNA2O7jThYGiDgC8EyO+R6uAK+cD89VW8kneQNy/eGJzEcA8VUJOkbg==
   dependencies:
-    "@hapi/boom" "^7.4.3"
-    "@hapi/h2o2" "^8.3.1"
-    "@hapi/hapi" "^18.3.2"
+    "@hapi/boom" "^7.4.11"
+    "@hapi/h2o2" "^8.3.2"
+    "@hapi/hapi" "^18.4.0"
     cuid "^2.1.6"
     hapi-plugin-websocket "^2.1.2"
     js-string-escape "^1.0.1"
-    jsonpath-plus "^1.0.0"
+    jsonpath-plus "^1.1.0"
     jsonwebtoken "^8.5.1"
-    luxon "^1.17.1"
+    luxon "^1.19.3"
     object.fromentries "^2.0.0"
     semver "^6.2.0"
     trim-newlines "^3.0.0"
     update-notifier "^3.0.1"
-    velocityjs "^1.1.4"
+    velocityjs "^1.1.5"
 
 serverless-webpack@^5.3.1:
   version "5.3.1"
@@ -6826,10 +6864,10 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-velocityjs@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/velocityjs/-/velocityjs-1.1.4.tgz#d8122e61d583e0421f8e40d50bdb0eaf39e160f5"
-  integrity sha512-2j741DNEA6DSrnoBR60Fx2QyqNv/3Y1p7+BHj7FRsgOANx0YAoOH7FMX6jV52O6dwXmUW/3sy01gprayU1xckw==
+velocityjs@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/velocityjs/-/velocityjs-1.1.5.tgz#7c2001bf839901f8a682567a3781bc3cfd7a20e1"
+  integrity sha512-U4ANK4MRYSczVZjOp9FkAQoPO9geKSy3CWrBShPxMoWyqDox8SW8AZYiKtlCrV21ucONUtlU0iF3+KKK9AGoyA==
 
 verror@1.10.0:
   version "1.10.0"
