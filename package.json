@@ -2,41 +2,44 @@
   "name": "rap-tap-app-core",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "clean": "rimraf .serverless",
+    "setup": "yarn install --ignore-optional",
+    "dev": "serverless offline start",
+    "build": "yarn serverless package",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "deploy": "yarn serverless deploy",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
+  },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
     "@aws/dynamodb-expressions": "^0.7.3",
-    "@types/uuid": "^3.4.7",
-    "aws-sdk": "^2.605.0",
+    "aws-sdk": "^2.611.0",
     "moment": "^2.24.0",
     "serverless-dynamodb-ttl": "^0.1.1",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.39",
+    "@types/aws-lambda": "^8.10.40",
     "@types/node": "^13.7.0",
+    "@types/uuid": "^3.4.7",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
     "all-contributors-cli": "^6.13.0",
+    "eslint": "^6.8.0",
     "serverless": "^1.62.0",
     "serverless-offline": "^5.12.1",
     "serverless-webpack": "^5.3.1",
     "ts-loader": "^6.2.1",
-    "tslint": "^6.0.0",
-    "tslint-loader": "^3.5.4",
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
     "webpack-node-externals": "^1.7.2"
   },
-  "scripts": {
-    "clean": "npx rimraf .serverless",
-    "setup": "yarn install --ignore-optional",
-    "lint": "tslint -p tsconfig.json",
-    "build": "yarn serverless package",
-    "deploy": "yarn serverless deploy",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
-  },
   "engines": {
-    "node": "10"
+    "node": "12"
   },
   "homepage": "https://github.com/riotz-works/rap-tap-app-core#readme",
   "repository": {

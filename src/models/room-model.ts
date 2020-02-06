@@ -1,4 +1,3 @@
-/* tslint:disable:completed-docs */  // For value objects of model class
 import { DynamoDbSchema, DynamoDbTable } from '@aws/dynamodb-data-mapper';
 
 
@@ -18,10 +17,8 @@ export class RoomModel {
 
 
 Object.defineProperties(RoomModel.prototype, {
-  [ DynamoDbTable ]: {
-    value: 'Rooms'
-  },
-  [ DynamoDbSchema ]: {
+  [DynamoDbTable]: { value: 'Rooms' },
+  [DynamoDbSchema]: {
     value: {
       roomId: {
         type: 'String'
@@ -54,7 +51,6 @@ Object.defineProperties(RoomModel.prototype, {
       expiresAt: {
         type: 'Number'
       }
-
     }
   }
 });

@@ -4,55 +4,75 @@ executors:
   default:
     working_directory: ~/workspace
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:12
     environment:
       TZ: /usr/share/zoneinfo/Asia/Tokyo
 
 commands:
-  system_info:
+  attach:
+    steps:
+      - attach_workspace:
+          at: ~/workspace
+  persist:
+    steps:
+      - persist_to_workspace:
+          root: ~/workspace
+          paths:
+            - ./*
+
+jobs:
+  setup:
+    executor:
+      name: default
     steps:
       - run:
           name: System information
           command: |
             echo "Node $(node -v)"
             echo "Yarn v$(yarn -v)"
-  setup:
-    steps:
+      - checkout
       - restore_cache:
           name: Restore Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Setup
-          command: yarn setup
+          command: |
+            yarn setup
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-
-
-jobs:
+      - persist
+  lint:
+    executor:
+      name: default
+    steps:
+      - attach
+      - run:
+          name: Lint
+          command: |
+            yarn lint --format junit --output-file ./reports/eslint/results.xml
+      - store_artifacts:
+          path: ./reports
+      - store_test_results:
+          path: ./reports
   build:
     executor:
       name: default
     steps:
-      - system_info
-      - checkout
-      - setup
+      - attach
       - run:
           name: Build
           command: |
             yarn build --stage dev
-      - persist_to_workspace:
-          root: ~/workspace
-          paths:
-            - ./*
+      - store_artifacts:
+          path: ./dist
   deploy:
     executor:
       name: default
     steps:
-      - attach_workspace:
-          at: ~/workspace
+      - attach
       - run:
           name: Deploy
           command: |
@@ -62,13 +82,18 @@ jobs:
 workflows:
   build-deploy-flow:
     jobs:
+      - setup
+      - lint:
+          requires:
+            - setup
       - build:
           context: rap-tap-app
+          requires:
+            - setup
       - deploy:
           context: rap-tap-app
           requires:
             - build
           filters:
             branches:
-              only:
-                - master
+              only: master

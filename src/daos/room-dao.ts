@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import RtaError, { errorTypes } from '~/errors/rta-error';
 import { RapperModel, RoomModel } from '~/models/room-model';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const DynamoDB = require('aws-sdk/clients/dynamodb');
 
 

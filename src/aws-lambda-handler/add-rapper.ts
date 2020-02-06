@@ -29,16 +29,14 @@ export const handle: Handler<APIGatewayEvent, APIGatewayProxyResult> = async (ev
     console.error(JSON.stringify(err));
     if (err instanceof RtaError) {
       return new ErrorResult({ message: err.message });
-    } else {
-      return new FatalResult({ message: JSON.stringify(err) });
     }
+    return new FatalResult({ message: JSON.stringify(err) });
   }
 };
 
 
-/* tslint:disable:completed-docs */  // For value objects of model class
 class Result implements APIGatewayProxyResult {
-  public statusCode: number = 200;
+  public statusCode = 200;
   public headers: { [header: string]: string } = { 'Access-Control-Allow-Origin': '*' };
   public body: string;
 
@@ -60,4 +58,3 @@ class FatalResult extends Result implements APIGatewayProxyResult {
     super(body, 500);
   }
 }
-/* tslint:enable */
