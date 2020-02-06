@@ -22,9 +22,8 @@ export const handle: Handler<APIGatewayEvent, APIGatewayProxyResult> = async (ev
 };
 
 
-/* tslint:disable:completed-docs */  // For value objects of model class
 class Result implements APIGatewayProxyResult {
-  public statusCode: number = 200;
+  public statusCode = 200;
   public headers: { [header: string]: string } = { 'Access-Control-Allow-Origin': '*' };
   public body: string;
 
@@ -32,4 +31,3 @@ class Result implements APIGatewayProxyResult {
     this.body = JSON.stringify(body);
   }
 }
-/* tslint:enable */

@@ -13,13 +13,12 @@ export const handle: Handler<APIGatewayEvent, APIGatewayProxyResult> = async (ev
   if (event.queryStringParameters && event.queryStringParameters.detail === 'true') {
     return new Result({ name, version, dependencies, devDependencies });
   }
-  return new Result({ name, version });
+  return Promise.resolve(new Result({ name, version }));
 };
 
 
-/* tslint:disable:completed-docs */  // For value objects of model class
 class Result implements APIGatewayProxyResult {
-  public statusCode: number = 200;
+  public statusCode = 200;
   public headers: { [header: string]: string } = { 'Access-Control-Allow-Origin': '*' };
   public body: string;
 
@@ -27,4 +26,3 @@ class Result implements APIGatewayProxyResult {
     this.body = JSON.stringify(body);
   }
 }
-/* tslint:enable */

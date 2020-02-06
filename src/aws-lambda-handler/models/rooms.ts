@@ -1,4 +1,3 @@
-/* tslint:disable:completed-docs */  // For value objects of model class
 import { RoomModel } from '~/models/room-model';
 import { Room } from './room';
 
