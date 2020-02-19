@@ -30,7 +30,7 @@
     "@typescript-eslint/parser": "^2.20.0",
     "all-contributors-cli": "^6.13.0",
     "eslint": "^6.8.0",
-    "serverless": "^1.63.0",
+    "serverless": "^1.64.0",
     "serverless-offline": "^5.12.1",
     "serverless-webpack": "^5.3.1",
     "ts-loader": "^6.2.1",
