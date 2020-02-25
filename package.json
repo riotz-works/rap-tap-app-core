@@ -20,7 +20,7 @@
     "aws-sdk": "^2.624.0",
     "moment": "^2.24.0",
     "serverless-dynamodb-ttl": "^0.1.1",
-    "uuid": "^3.4.0"
+    "uuid": "^7.0.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.44",
