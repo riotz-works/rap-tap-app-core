@@ -6490,10 +6490,10 @@ serverless-dynamodb-ttl@^0.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
-serverless-offline@^6.1.2:
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-6.1.2.tgz#1c0705adffe1a3868945a9fb2aec56362c0cec34"
-  integrity sha512-uPphAkEWivs6wdSwS2AFmqW0wTy2CU5vlE9Q0GJI4bjheeormasEw40dDWBnODufGPEI8JcKmh2tlnzxkLj/7Q==
+serverless-offline@^6.1.4:
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-6.1.4.tgz#506662526fdd9d640de5bf802573171ce0df67a3"
+  integrity sha512-HDvFlPFZA0Pwr3EqS6bQ0zakxcF94+GyEJNM8TRsneOqDr1Wx6kFxBt5cCCzkCUt5RVsmFoHBSAu942N5XVEUg==
   dependencies:
     "@hapi/boom" "^7.4.11"
     "@hapi/h2o2" "^8.3.2"
@@ -7888,12 +7888,7 @@ ws@<7.0.0:
   dependencies:
     async-limiter "~1.0.0"
 
-ws@^7.2.1:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.2.1.tgz#03ed52423cd744084b2cf42ed197c8b65a936b8e"
-  integrity sha512-sucePNSafamSKoOqoNfBd8V0StlkzJKL2ZAhGQinCfNQ+oacw+Pk7lcdAElecBF2VkLNZRiIb5Oi1Q5lVUVt2A==
-
-ws@^7.2.3:
+ws@^7.2.1, ws@^7.2.3:
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.2.3.tgz#a5411e1fb04d5ed0efee76d26d5c46d830c39b46"
   integrity sha512-HTDl9G9hbkNDk98naoR/cHDws7+EyYMOdL1BmjsZXRUjf7d+MficC4B7HLUPlSiho0vg+CWKrGIt/VJBd1xunQ==
