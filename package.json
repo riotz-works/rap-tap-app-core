@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.50",
-    "@types/node": "^13.13.0",
+    "@types/node": "^13.13.1",
     "@types/uuid": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",
