@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { v4 } from 'uuid';
+import { ulid } from 'ulid';
 import { RoomDao } from '~/daos/room-dao';
 import { RapperModel, RoomModel } from '~/models/room-model';
 
@@ -18,7 +18,7 @@ export class RoomService {
    */
   public async newRoom(roomName?: string): Promise<RoomModel> {
     const model: RoomModel = new RoomModel();
-    model.roomId = v4();
+    model.roomId = ulid();
     model.roomName = roomName;
 
     const registeredDate: moment.Moment = moment.utc();

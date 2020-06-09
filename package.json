@@ -20,12 +20,11 @@
     "aws-sdk": "^2.689.0",
     "moment": "^2.26.0",
     "serverless-dynamodb-ttl": "^0.1.1",
-    "uuid": "^8.1.0"
+    "ulid": "^2.3.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.53",
     "@types/node": "^14.0.11",
-    "@types/uuid": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^3.1.0",
     "all-contributors-cli": "^6.15.0",
