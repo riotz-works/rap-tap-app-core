@@ -17,7 +17,7 @@
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
     "@aws/dynamodb-expressions": "^0.7.3",
-    "aws-sdk": "^2.689.0",
+    "aws-sdk": "^2.692.0",
     "moment": "^2.26.0",
     "serverless-dynamodb-ttl": "^0.1.1",
     "ulid": "^2.3.0"
