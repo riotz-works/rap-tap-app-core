@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import dayjs from 'dayjs';
 import { ulid } from 'ulid';
 import { RoomDao } from '~/daos/room-dao';
 import { RapperModel, RoomModel } from '~/models/room-model';
@@ -21,11 +21,11 @@ export class RoomService {
     model.roomId = ulid();
     model.roomName = roomName;
 
-    const registeredDate: moment.Moment = moment.utc();
+    const registeredDate: dayjs.Dayjs = dayjs();
     model.registeredDateYearMonth = registeredDate.format('YYYY-MM');
     model.registeredDateRoomId = `${registeredDate.toISOString()}_${model.roomId}`;
     model.rappers = new Array<RapperModel>();
-    model.expiresAt = registeredDate.add(1, 'hours').unix();
+    model.expiresAt = registeredDate.add(1, 'h').unix();
 
     const created: RoomModel = await this.dao.put(model);
     return created;

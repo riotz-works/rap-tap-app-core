@@ -1,5 +1,5 @@
 import { DataMapper } from '@aws/dynamodb-data-mapper';
-import * as moment from 'moment';
+import dayjs from 'dayjs';
 import RtaError, { errorTypes } from '~/errors/rta-error';
 import { RapperModel, RoomModel } from '~/models/room-model';
 
@@ -30,8 +30,8 @@ export class RoomDao {
    * @param roomId Room ID.
    */
   public async find(roomId?: string): Promise<RoomModel> {
-    const now: moment.Moment = moment.utc();
-    const start: moment.Moment = moment.utc().subtract(1, 'hours');
+    const now: dayjs.Dayjs = dayjs();
+    const start: dayjs.Dayjs = dayjs().subtract(1, 'h');
     const params = {
       TableName: 'Rooms',
       IndexName: 'roomId-index',
@@ -51,8 +51,8 @@ export class RoomDao {
    * List registered rooms.
    */
   public async list(): Promise<RoomModel[]> {
-    const now: moment.Moment = moment.utc();
-    const start: moment.Moment = moment.utc().subtract(1, 'hours');
+    const now: dayjs.Dayjs = dayjs();
+    const start: dayjs.Dayjs = dayjs().subtract(1, 'h');
     const params = {
       TableName: 'Rooms',
       KeyConditionExpression: 'registeredDateYearMonth = :registeredDateYearMonth and registeredDateRoomId BETWEEN :start AND :end',
@@ -71,8 +71,8 @@ export class RoomDao {
    * List matched rooms.
    */
   public async listMatched(): Promise<RoomModel[]> {
-    const now: moment.Moment = moment.utc();
-    const start: moment.Moment = moment.utc().subtract(1, 'hours');
+    const now: dayjs.Dayjs = dayjs();
+    const start: dayjs.Dayjs = dayjs().subtract(1, 'h');
     const params = {
       TableName: 'Rooms',
       KeyConditionExpression: 'registeredDateYearMonth = :registeredDateYearMonth and registeredDateRoomId BETWEEN :start AND :end',
