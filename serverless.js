@@ -6,6 +6,7 @@
 
 const pkg = require('./package.json');
 
+
 module.exports = {
   service: pkg.name,
   provider: {
