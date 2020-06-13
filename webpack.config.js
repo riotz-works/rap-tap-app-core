@@ -4,10 +4,15 @@ const externals = require('webpack-node-externals');
 
 const production = slsw.lib.options.stage === 'prd';
 
+const entries = {};
+Object.keys(slsw.lib.entries).forEach(
+  key => (entries[key] = ['./source-map-install.js', slsw.lib.entries[key]])
+);
+
 
 module.exports = {
   target: 'async-node',
-  entry: slsw.lib.entries,
+  entry: entries,
   mode: production ? 'production' : 'development',
   devtool: production ? '' : 'inline-source-map',
   externals: [ externals() ],
