@@ -8,10 +8,10 @@ import { dependencies, devDependencies, name, version } from '../../package.json
  * @param event – event data.
  * @see http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html
  */
-export const handle: Handler<APIGatewayEvent, APIGatewayProxyResult> = async (event: APIGatewayEvent): Promise<APIGatewayProxyResult> => {
+export const handle: Handler<APIGatewayEvent, APIGatewayProxyResult> = (event: APIGatewayEvent): Promise<APIGatewayProxyResult> => {
   console.debug('Starting Lambda handler: event=%s', JSON.stringify(event));
   if (event.queryStringParameters && event.queryStringParameters.detail === 'true') {
-    return new Result({ name, version, dependencies, devDependencies });
+    return Promise.resolve(new Result({ name, version, dependencies, devDependencies }));
   }
   return Promise.resolve(new Result({ name, version }));
 };
