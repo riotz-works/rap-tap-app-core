@@ -65,18 +65,23 @@ jobs:
       - run:
           name: Build
           command: |
-            yarn build --stage dev
+            yarn build
       - store_artifacts:
           path: ./dist
+      - persist
   deploy:
     executor:
       name: default
+    parameters:
+      stage:
+        type: enum
+        enum: [ "dev", "prd" ]
     steps:
       - attach
       - run:
           name: Deploy
           command: |
-            yarn deploy --stage dev
+            yarn deploy --stage << parameters.stage >>
 
 
 workflows:
@@ -91,6 +96,7 @@ workflows:
           requires:
             - setup
       - deploy:
+          stage: dev
           context: rap-tap-app
           requires:
             - build
