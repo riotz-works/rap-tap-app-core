@@ -17,14 +17,17 @@ module.exports = {
     stage: '${opt:stage, "dev"}',
     region: '${opt:region, self:custom.stages.region.${self:provider.stage}}',
     runtime: `nodejs${pkg.engines.node}`,
+    apiName: '${self:service}${self:custom.stages.suffix.${self:provider.stage}}',
     memorySize: 256,
     timeout: 29,
     logRetentionInDays: 7,
+    versionFunctions: false,
     deploymentBucket: {
-      name: '${opt:bucket, "x-sls-artifacts-riotz-${self:provider.region}"}',
+      name: '${opt:bucket, "x-sls-artifacts-' + pkg.group + '-${self:provider.region}"}',  /* eslint-disable-line prefer-template */  // 'cuz syntax of the serverless framework
+      maxPreviousDeploymentArtifacts: 1,
+      blockPublicAccess: true,
       serverSideEncryption: 'AES256'
     },
-    apiName: '${self:service}${self:custom.stages.suffix.${self:provider.stage}}',
     iamRoleStatements: [{
       Effect: 'Allow',
       Action: [
