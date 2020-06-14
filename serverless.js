@@ -31,9 +31,15 @@ module.exports = {
     iamRoleStatements: [{
       Effect: 'Allow',
       Action: [
-        'dynamodb:*'
+        'dynamodb:GetItem',
+        'dynamodb:Query',
+        'dynamodb:PutItem',
+        'dynamodb:UpdateItem'
       ],
-      Resource: '*'
+      Resource: [
+        { 'Fn::GetAtt': [ 'RoomsTable', 'Arn' ]},
+        { 'Fn::Join': [ '/', [{ 'Fn::GetAtt': [ 'RoomsTable', 'Arn' ]}, 'index', 'roomId-index' ]]}
+      ]
     }],
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
