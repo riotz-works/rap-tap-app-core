@@ -24,6 +24,7 @@ module.exports = {
     versionFunctions: false,
     deploymentBucket: {
       name: '${opt:bucket, "x-sls-artifacts-' + pkg.group + '-${self:provider.region}"}',  /* eslint-disable-line prefer-template */  // 'cuz syntax of the serverless framework
+      maxPreviousDeploymentArtifacts: 1,
       serverSideEncryption: 'AES256'
     },
     iamRoleStatements: [{
