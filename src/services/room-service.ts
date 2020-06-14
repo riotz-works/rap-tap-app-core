@@ -35,21 +35,21 @@ export class RoomService {
    * Get Room by ID.
    * @param roomId Room ID.
    */
-  public async getRoom(roomId?: string): Promise<RoomModel> {
+  public getRoom(roomId?: string): Promise<RoomModel> {
     return this.dao.find(roomId);
   }
 
   /**
    * List registered rooms.
    */
-  public async listRooms(): Promise<RoomModel[]> {
+  public listRooms(): Promise<RoomModel[]> {
     return this.dao.list();
   }
 
   /**
    * List matched rooms.
    */
-  public async listMatchedRooms(): Promise<RoomModel[]> {
+  public listMatchedRooms(): Promise<RoomModel[]> {
     return this.dao.listMatched();
   }
 
@@ -58,7 +58,7 @@ export class RoomService {
    * @param roomId Room ID.
    * @param rapper Rapper to add.
    */
-  public async addRapper(roomId?: string, rapper?: RapperModel): Promise<RoomModel> {
+  public addRapper(roomId?: string, rapper?: RapperModel): Promise<RoomModel> {
     return this.dao.addRapper(roomId, rapper);
   }
 }
