@@ -22,8 +22,7 @@ commands:
 
 jobs:
   setup:
-    executor:
-      name: default
+    executor: default
     steps:
       - run:
           name: System information
@@ -45,38 +44,36 @@ jobs:
             - ~/.cache/yarn
       - persist
   lint:
-    executor:
-      name: default
+    executor: default
     steps:
       - attach
       - run:
           name: Lint
           command: |
-            yarn lint --format junit --output-file ./reports/eslint/results.xml
+            yarn lint --format junit --output-file reports/eslint/results.xml
       - store_artifacts:
-          path: ./reports
+          path: reports
       - store_test_results:
-          path: ./reports
+          path: reports
   build:
-    executor:
-      name: default
+    executor: default
     steps:
       - attach
       - run:
           name: Build
           command: |
-            yarn build --stage dev
-      - store_artifacts:
-          path: ./dist
+            yarn build
   deploy:
-    executor:
-      name: default
+    executor: default
+    parameters:
+      stage:
+        type: enum
+        enum: [ "dev", "prd" ]
     steps:
       - attach
-      - run:
-          name: Deploy
+      - deploy:
           command: |
-            yarn deploy --stage dev
+            yarn deploy --stage << parameters.stage >>
 
 
 workflows:
@@ -91,6 +88,7 @@ workflows:
           requires:
             - setup
       - deploy:
+          stage: dev
           context: rap-tap-app
           requires:
             - build
