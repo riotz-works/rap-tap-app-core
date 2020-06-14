@@ -52,11 +52,11 @@ jobs:
       - run:
           name: Lint
           command: |
-            yarn lint --format junit --output-file ./reports/eslint/results.xml
+            yarn lint --format junit --output-file reports/eslint/results.xml
       - store_artifacts:
-          path: ./reports
+          path: reports
       - store_test_results:
-          path: ./reports
+          path: reports
   build:
     executor:
       name: default
@@ -65,18 +65,19 @@ jobs:
       - run:
           name: Build
           command: |
-            yarn build --stage dev
-      - store_artifacts:
-          path: ./dist
+            yarn build
   deploy:
     executor:
       name: default
+    parameters:
+      stage:
+        type: enum
+        enum: [ "dev", "prd" ]
     steps:
       - attach
-      - run:
-          name: Deploy
+      - deploy:
           command: |
-            yarn deploy --stage dev
+            yarn deploy --stage << parameters.stage >>
 
 
 workflows:
@@ -91,6 +92,7 @@ workflows:
           requires:
             - setup
       - deploy:
+          stage: dev
           context: rap-tap-app
           requires:
             - build
