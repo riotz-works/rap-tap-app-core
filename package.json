@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "clean": "rimraf .serverless",
+    "clean": "rimraf .serverless deploy/.webpack",
     "setup": "yarn install --ignore-optional",
     "dev": "serverless offline start",
-    "build": "yarn serverless package",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "deploy": "yarn serverless deploy",
+    "build": "serverless package",
+    "lint": "eslint . --ext .js,.ts --ignore-path .gitignore",
+    "lint:fix": "yarn lint --fix",
+    "deploy": "serverless deploy",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
