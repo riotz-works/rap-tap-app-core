@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const externals = require('webpack-node-externals');
 
 const production = slsw.lib.options.stage === 'prd';
-const entries = production ? slsw.lib.entries : [ ...new Map(Object.entries(slsw.lib.entries)) ].reduce((l, [ k, v ]) => Object.assign(l, { [k]: [ './deploy/source-map-install.js', v ]}), {});
+const entries = production ? slsw.lib.entries : [ ...new Map(Object.entries(slsw.lib.entries)) ].reduce((l, [ k, v ]) => Object.assign(l, { [k]: [ 'deploy/source-map-install.js', v ]}), {});
 
 
 module.exports = {
