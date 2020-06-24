@@ -1,5 +1,6 @@
-/* eslint-disable no-multi-spaces */              // 'cuz clarify paired structure
-/* eslint-disable no-template-curly-in-string */  // 'cuz syntax of the serverless framework
+/* eslint-disable no-multi-spaces */                     // 'cuz clarify paired structure
+/* eslint-disable no-template-curly-in-string */         // 'cuz syntax of the serverless framework
+/* eslint-disable @typescript-eslint/no-var-requires */  // 'cuz of the JavaScript file
 
 // Command line options
 // --stage:       Required System Landscape name, default is 'dev' (Choice: [dev | prd], e.g. --stage dev)
