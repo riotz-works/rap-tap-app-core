@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/camelcase */   // 'cuz key name of configuration is specified
-
+/* eslint-disable @typescript-eslint/camelcase */        // 'cuz key name of configuration is specified
+/* eslint-disable @typescript-eslint/no-var-requires */  // 'cuz of the JavaScript file
 const path = require('path');
 const slsw = require('serverless-webpack');
 const TerserPlugin = require('terser-webpack-plugin');
