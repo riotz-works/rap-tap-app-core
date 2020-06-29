@@ -91,6 +91,7 @@ workflows:
           stage: dev
           context: rap-tap-app
           requires:
+            - lint
             - build
           filters:
             branches:
