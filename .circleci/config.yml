@@ -12,13 +12,13 @@ commands:
   attach:
     steps:
       - attach_workspace:
-          at: ~/workspace
+          at: .
   persist:
     steps:
       - persist_to_workspace:
-          root: ~/workspace
+          root: .
           paths:
-            - ./*
+            - "*"
 
 jobs:
   setup:
@@ -31,14 +31,12 @@ jobs:
             echo "Yarn v$(yarn -v)"
       - checkout
       - restore_cache:
-          name: Restore Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Setup
           command: |
             yarn setup
       - save_cache:
-          name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
@@ -68,7 +66,7 @@ jobs:
     parameters:
       stage:
         type: enum
-        enum: [ "dev", "prd" ]
+        enum: [ "dev" ]
     steps:
       - attach
       - deploy:
