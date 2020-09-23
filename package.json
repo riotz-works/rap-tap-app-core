@@ -41,7 +41,7 @@
     "webpack-node-externals": "^2.5.0"
   },
   "engines": {
-    "node": ">12.x"
+    "node": ">=12.x"
   },
   "homepage": "https://github.com/riotz-works/rap-tap-app-core#readme",
   "repository": {
