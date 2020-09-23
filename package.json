@@ -10,7 +10,7 @@
     "build": "serverless package",
     "lint": "eslint . --ext .js,.ts --ignore-path .gitignore",
     "lint:fix": "yarn lint --fix",
-    "deploy": "serverless deploy",
+    "deploy": "serverless deploy -v",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
