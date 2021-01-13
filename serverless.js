@@ -19,7 +19,7 @@ module.exports = {
     name: 'aws',
     stage: '${opt:stage, "dev"}',
     region: '${opt:region, self:custom.stages.region.${self:provider.stage}}',
-    runtime: `nodejs${pkg.engines.node}`,
+    runtime: `nodejs${pkg.engines.node.replace('>=', '')}`,
     apiName: '${self:service}${self:custom.stages.suffix.${self:provider.stage}}',
     memorySize: 256,
     timeout: 29,
